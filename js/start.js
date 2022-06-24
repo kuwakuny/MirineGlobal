@@ -17,15 +17,15 @@ function addAnswer(answerText, qIdx) {
         var children = document.querySelectorAll('.answerList');
         for (let i = 0; i < children.length; i++) {
             children[i].disabled = true;
-            children[i].style.WebkitAnimation = "fadeOut 1s";
-            children[i].style.Animation = "fadeOut 1s";
+            children[i].style.WebkitAnimation = "fadeOut 0.5s";
+            children[i].style.Animation = "fadeOut 0.5s";
         }
         setTimeout(() => {
             for (let i = 0; i < children.length; i++) {
-
+                children[i].style.display = 'none';
             }
-        }, 950);
-        goNext(++qIdx);
+            goNext(++qIdx);
+        }, 450);
     }, false);
 }
 
