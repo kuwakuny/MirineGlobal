@@ -1,7 +1,47 @@
 const main = document.querySelector("#main");
 const qna = document.querySelector("#qna");
+const result = document.querySelector("#result");
 
-function addAnswer(answerText, qIdx) {
+const endPoint = 12;
+const select = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+function calResult() {
+    var result = select.indexOf(Math.max(...select));
+    return result;
+}
+
+function setResult() {
+    let point = calResult();
+    const resultName = document.querySelector('.resultName');
+    resultName.innerHTML = infoList[point].name;
+
+    var resultImg = document.createElement('img');
+    const imgDiv = document.querySelector('#resultImg');
+    var imgURL = 'img/image-' + point + '.png';
+    resultImg.src = imgURL;
+    resultImg.alt = point;
+    resultImg.classList.add('img-fluid');
+    imgDiv.appendChild(resultImg);
+
+    const resultDesc = document.querySelector('.resultDesc');
+    resultDesc.innerHTML = infoList[point].desc;
+}
+
+function goResult() {
+    qna.style.WebkitAnimation = "fadeOut 1s";
+    qna.style.Animation = "fadeOut 1s";
+    setTimeout(() => {
+        result.style.WebkitAnimation = "fadeIn 1s";
+        result.style.animation = "fadeIn 1s";
+        setTimeout(() => {
+            qna.style.display = "none";
+            result.style.display = "block";
+        }, 450)
+    });
+    setResult();
+}
+
+function addAnswer(answerText, qIdx, idx) {
     var a = document.querySelector('.answerBox');
     var answer = document.createElement('Button');
     answer.classList.add('answerList');
@@ -10,9 +50,9 @@ function addAnswer(answerText, qIdx) {
     answer.classList.add('mx-auto');
     answer.classList.add('fadeIn');
 
-
     a.appendChild(answer);
     answer.innerHTML = answerText;
+
     answer.addEventListener("click", function () {
         var children = document.querySelectorAll('.answerList');
         for (let i = 0; i < children.length; i++) {
@@ -21,20 +61,32 @@ function addAnswer(answerText, qIdx) {
             children[i].style.Animation = "fadeOut 0.5s";
         }
         setTimeout(() => {
+            var target = qnaList[qIdx].a[idx].type;
+            for (let i = 0; i < target.length; i++) {
+                select[target[i]] += 1;
+            }
+
             for (let i = 0; i < children.length; i++) {
                 children[i].style.display = 'none';
             }
             goNext(++qIdx);
         }, 450);
+
     }, false);
 }
 
 function goNext(qIdx) {
+    if (qIdx === endPoint) {
+        goResult();
+        return;
+    }
     var q = document.querySelector('.qBox');
     q.innerHTML = qnaList[qIdx].q;
     for (let i in qnaList[qIdx].a) {
-        addAnswer(qnaList[qIdx].a[i].answer, qIdx);
+        addAnswer(qnaList[qIdx].a[i].answer, qIdx, i);
     }
+    var status = document.querySelector('.statusBar');
+    status.style.width = (100 / endPoint) * (qIdx + 1) + '%';
 }
 
 function begin() {
@@ -50,5 +102,4 @@ function begin() {
         let qIdx = 0;
         goNext(qIdx);
     }, 450)
-    //qna.style.display = "block";
 }
