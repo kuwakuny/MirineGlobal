@@ -1,4 +1,4 @@
-const url = 'https://jk12lovetypes.netlify.app';
+const url = 'https://jk12lovetypes.netlify.app/';
 
 function setShare() {
     var resultImg = document.querySelector('#resultImg');
