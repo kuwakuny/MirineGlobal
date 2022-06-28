@@ -1,3 +1,5 @@
+/*keyframes：アニメーションの最初から最後まで、動きや効果を設定。*/
+/*opacity：透明度を調節*/
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -8,6 +10,7 @@
     to { opacity: 0; }
 }
 
+/*-webkit-：ベンダープリフィックス（chromeとsafariで支援するように）*/
 @-webkit-keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -18,6 +21,8 @@
     to { opacity: 0; }
 }
 
+/*作成した@keyframesを活用するために、animation属性を使う*/
+/*animation-属性：アニメーションの時間、回数を設定*/
 .fadeIn{
     animation: fadeIn;
     animation-duration: 0.5s;

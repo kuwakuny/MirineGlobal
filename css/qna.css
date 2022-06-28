@@ -1,7 +1,9 @@
+/*qnaセクションが最初は見えないようにする。*/
 #qna{
     display: none;
 }
 
+/*質問エリアのデザイン*/
 .qBox{
     background-color: whitesmoke;
     text-align: center;
@@ -10,20 +12,28 @@
     width: 80%;
 }
 
+/*答えリストのデザイン*/
 .answerList{
     background-color: whitesmoke;
     border-radius: 20px;
+    /*要素を縦に並ばせる*/
     display: block;
     border: 0px;
     font-size: 20px;
     width: 80%;
 }
 
-.answerList:hover, .answerList.focus{
+/*答えにカーソルを重ねたとき*/
+.answerList:hover{
     background-color: pink;
-    color: whitesmoke;
 }
 
+/*答えをクリックしたとき*/
+.answerList:focus{
+    background-color: rgba(224, 72, 72, 0.884)
+}
+
+/*statusクラスのデザイン*/
 .status{
     height: 20px;
     width: 80%;
@@ -31,14 +41,15 @@
     border-radius: 20px;
 }
 
+/*statusBarのデザイン*/
 .statusBar{
     height: 100%;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fcecfc+0,fba6e1+50,fd89d7+51,ff7cd8+100;Pink+Gloss+%232 */
+    /*グラデーション*/
     background: #fcecfc; /* Old browsers */
     background: -moz-linear-gradient(top,  #fcecfc 0%, #fba6e1 50%, #fd89d7 51%, #ff7cd8 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 51%,#ff7cd8 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  #fcecfc 0%,#fba6e1 50%,#fd89d7 51%,#ff7cd8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', endColorstr='#ff7cd8',GradientType=0 ); /* IE6-9 */
-
+    
     border-radius: 20px;
 }

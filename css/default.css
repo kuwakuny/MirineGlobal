@@ -1,7 +1,8 @@
+/*初期値*/
 body{
     background-color: pink;
 }
-
+/*すべてのフォントに適用*/
 *{
     font-family: 'Cute Font', cursive;
 }

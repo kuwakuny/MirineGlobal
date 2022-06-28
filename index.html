@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="LEE Jinkyu">
+    <meta name="author" content="LEE JINKYU">
     <meta name="keywords" content="십이간지 연애유형">
     <meta name="description" content="십이간지 연애유형">
 
@@ -19,15 +19,19 @@
     <link rel="apple-touch-icon-precomposed" href="img/favicon.ico">
 
     <title>십이간지 연애유형</title>
+    <!--Bootstrapリンク-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Google fontリンク -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <!-- CSSファイルリンク -->
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/qna.css">
     <link rel="stylesheet" href="./css/animation.css">
     <link rel="stylesheet" href="./css/result.css">
+    <!-- Kakao APIリンク -->
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
         Kakao.init('ee599afa52aac7938fc21aca4c6d5056');
@@ -35,46 +39,73 @@
     </script>
 </head>
 <body>
-    
+    <!-- main、qna、resultを一つのページに表示。セクションが変わるときに他の画面を非表示にする -->
     <div class="container">
-        <section id="main" class="mx-auto my-5 py-5 px-3">
+        <!-- 
+            mx-auto = left & right(x) margin : auto
+            my = top & bottom(y) margin
+            px = left & right(x) padding
+            py = left & right(x) padding
+        -->
+        <section id="main" class="mx-auto my-5 px-3 py-5">
             <h1>십이간지로 알아보는 연애유형</h1>
+            <!--
+                イメージの大きさをレスポンシブに調整
+                ↓グリッド
+                col-lg = Large
+                col-md = Medium
+                col-sm = Small
+                col = Extra small
+            -->
             <div class="col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
+                <!-- alt属性：画像が表示されない場合の代替テキスト。画像の具体的な記述。
+                    img-fluid：親要素に比例してレスポンシブな画像を表示
+                -->
                 <img src="./img/main.png" alt="mainImage" class="img-fluid">
             </div>
             <p>
                 나만의 MBTI 사이트입니다! <br>
                 시작하기 버튼을 눌러서 시작해 주세요.
             </p>
-            <button type="button" class="btn btn-danger mt-3" onclick="js:begin()">시작하기</button>
+            <!-- ボタンをクリックするとJavaScriptファイルの中の「begin()」関数が実行される -->
+            <button type="button" class="btn btn-outline-danger" onclick="js:begin()">시작하기</button>
         </section>
         <section id="qna">
+            <!-- mt = margin-top -->
+            <!-- 進行状態表示（12問） -->
             <div class="status mx-auto mt-5">
                 <div class="statusBar">
 
                 </div>
             </div>
+            <!-- 質問表示 -->
             <div class="qBox my-5 py-3 mx-auto">
 
             </div>
+            <!-- 答え表示 -->
             <div class="answerBox">
 
             </div>
         </section>
+        <!-- 結果表示 -->
         <section id="result" class="mx-auto my-5 py-5 px-3">
             <h1>당신의 결과는!?</h1>
+            <!-- 結果名 -->
             <div class="resultName">
 
             </div>
+            <!-- 結果イメージ -->
             <div id="resultImg" class="my-3 col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
             
             </div>
+            <!-- 結果詳細 -->
             <div class="resultDesc">
 
             </div>
-            
+            <!-- 共有ボタン -->
             <button type="button" class="kakao mt-3 py-2 px-3" onclick="js:setShare()">공유하기</button>
         </section>
+    <!-- JavaScriptファイルリンク -->
     <script src="./js/data.js" charset="utf-8"></script>
     <script src="./js/start.js" charset="utf-8"></script>
     <script src="./js/share.js" charset="utf-8"></script>

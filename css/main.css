@@ -1,10 +1,12 @@
+/*mainのデザイン。「id」には＃をつける*/
 #main{
     background-color:whitesmoke;
     width: 80%;   
     text-align: center;
+    /*ボーダーを丸くする*/
     border-radius: 20px;
 }
-
+/*パラグラフのデザイン。「タグ」には何もつけない*/
 p{
     font-size: 22px;
 }
